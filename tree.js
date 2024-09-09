@@ -75,4 +75,19 @@ export default class Tree {
     if (value < node.data) return this._find(node.left, value);
     return this._find(node.right, value);
   }
+
+  levelOrder(callback) {
+    if (!callback) throw new Error("Callback function is required");
+
+    let queue = [];
+    if (this.root) queue.push(this.root);
+
+    while (queue.length > 0) {
+      let currentNode = queue.shift(); // get the node at the front of the queue
+      callback(currentNode); // execute the callback function on the current node
+
+      if (currentNode.left) queue.push(currentNode.left);
+      if (currentNode.right) queue.push(currentNode.right);
+    }
+  }
 }
