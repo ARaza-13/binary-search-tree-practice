@@ -6,3 +6,6 @@ const tree = new Tree(array);
 
 tree.insert(13);
 console.log(prettyPrint(tree.root));
+
+tree.deleteItem(8);
+console.log(prettyPrint(tree.root));

@@ -22,11 +22,47 @@ export default class Tree {
 
   _insert(node, value) {
     if (node === null) return new Node(value);
+
     if (value < node.data) {
       node.left = this._insert(node.left, value);
     } else if (value > node.data) {
       node.right = this._insert(node.right, value);
     }
+    return node; // if value is a duplicate, return node and ignore value
+  }
+
+  deleteItem(value) {
+    this.root = this._deleteNode(this.root, value);
+  }
+
+  _deleteNode(node, value) {
+    if (node === null) return node;
+
+    // if value to delete is smaller, recurse left
+    if (value < node.data) {
+      node.left = this._deleteNode(node.left, value);
+
+      // if value to delete is larger, recurse right
+    } else if (value > node.data) {
+      node.right - this._deleteNode(node.right, value);
+
+      // if value matches the current node
+    } else {
+      if (node.left === null) return node.right; // if no left child, replace value with right child
+      if (node.right === null) return node.left; // if no right child, replace value with left child
+
+      // for 2 children
+      node.data = this._minValue(node.right); // replace node value with its in-order successor (smallest node from right subtree)
+      node.right = this._deleteNode(node.right, node.data); // delete the in-order successor from the right subtree
+    }
     return node;
+  }
+
+  _minValue(node) {
+    let current = node;
+    while (current.left !== null) {
+      current = current.left;
+    }
+    return current.data;
   }
 }
