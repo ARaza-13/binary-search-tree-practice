@@ -65,4 +65,14 @@ export default class Tree {
     }
     return current.data;
   }
+
+  find(value) {
+    return this._find(this.root, value);
+  }
+
+  _find(node, value) {
+    if (node === null || node.data === value) return node;
+    if (value < node.data) return this._find(node.left, value);
+    return this._find(node.right, value);
+  }
 }
