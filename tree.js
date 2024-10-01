@@ -91,6 +91,25 @@ export default class Tree {
     }
   }
 
+  levelOrderRecursive(callback) {
+    if (!callback) throw new Error("Callback function is required");
+
+    const height = this.height(this.root); // Get the height of the tree
+    for (let i = 0; i <= height; i++) {
+      this._printGivenLevel(this.root, i, callback); // Print each level one by one
+    }
+  }
+
+  _printGivenLevel(node, level, callback) {
+    if (node === null) return;
+    if (level === 0) {
+      callback(node); // Process the node if we reach the correct level
+    } else if (level > 0) {
+      this._printGivenLevel(node.left, level - 1, callback); // Process the left subtree
+      this._printGivenLevel(node.right, level - 1, callback); // Process the right subtree
+    }
+  }
+
   height(node) {
     if (node === null) return -1; // leaf node has height of 0
 
