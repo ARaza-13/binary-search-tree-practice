@@ -14,3 +14,7 @@ console.log(tree.find(8));
 
 console.log(tree.levelOrder(prettyPrint));
 console.log(tree.levelOrderRecursive(prettyPrint));
+
+console.log(tree.inOrder(prettyPrint));
+console.log(tree.preOrder(prettyPrint));
+console.log(tree.postOrder(prettyPrint));

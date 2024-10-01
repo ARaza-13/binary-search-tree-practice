@@ -110,6 +110,33 @@ export default class Tree {
     }
   }
 
+  inOrder(callback, node = this.root) {
+    if (!callback) throw new Error("Callback function is required");
+    if (node === null) return;
+
+    this.inOrder(callback, node.left); // Visit left subtree
+    callback(node); // Process current node
+    this.inOrder(callback, node.right); // Visit right subtree
+  }
+
+  preOrder(callback, node = this.root) {
+    if (!callback) throw new Error("Callback function is required");
+    if (node === null) return;
+
+    callback(node); // Process current node first
+    this.preOrder(callback, node.left); // Visit left subtree
+    this.preOrder(callback, node.right); // Visit right subtree
+  }
+
+  postOrder(callback, node = this.root) {
+    if (!callback) throw new Error("Callback function is required");
+    if (node === null) return;
+
+    this.postOrder(callback, node.left); // Visit left subtree
+    this.postOrder(callback, node.right); // Visit right subtree
+    callback(node); // Process current node last
+  }
+
   height(node) {
     if (node === null) return -1; // leaf node has height of 0
 
