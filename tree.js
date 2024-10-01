@@ -90,4 +90,24 @@ export default class Tree {
       if (currentNode.right) queue.push(currentNode.right);
     }
   }
+
+  height(node) {
+    if (node === null) return -1; // leaf node has height of 0
+
+    let leftHeight = this.height(node.left);
+    let rightHeight = this.height(node.right);
+
+    return Math.max(leftHeight, rightHeight) + 1; // adding 1 accounts for the edge between the current node and its child
+  }
+
+  depth(node, currentNode = this.root, depthLevel = 0) {
+    if (currentNode === null) return -1; // Base case: If the node isn't found
+    if (currentNode === node) return depthLevel; // If we've found the node, return the depth
+
+    if (node.data < currentNode.data) {
+      return this.depth(node, currentNode.left, depthLevel + 1); // Tranverse left subtree
+    } else {
+      return this.depth(node, currentNode.right, depthLevel + 1); // Transverse right subtree
+    }
+  }
 }
