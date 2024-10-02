@@ -18,3 +18,5 @@ console.log(tree.levelOrderRecursive(prettyPrint));
 console.log(tree.inOrder(prettyPrint));
 console.log(tree.preOrder(prettyPrint));
 console.log(tree.postOrder(prettyPrint));
+
+console.log(tree.isBalanced());

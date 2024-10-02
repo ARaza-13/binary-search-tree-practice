@@ -137,6 +137,29 @@ export default class Tree {
     callback(node); // Process current node last
   }
 
+  isBalanced(node = this.root) {
+    if (node === null) return true; // Has no children
+
+    let leftHeight = this.height(node.left);
+    let rightHeight = this.height(node.right);
+
+    let heightDifference = Math.abs(leftHeight - rightHeight);
+
+    if (heightDifference > 1) return false; // Current node is unbalanced
+
+    return this.isBalanced(node.left) && this.isBalanced(node.right);
+  }
+
+  rebalance() {
+    let nodes = [];
+
+    // Transverse the tree in-order to get a sorted array
+    this.inOrder((node) => nodes.push(node.data));
+
+    // Build a balanced tree from the sorted array
+    this.root = this.buildTree(nodes);
+  }
+
   height(node) {
     if (node === null) return -1; // leaf node has height of 0
 
