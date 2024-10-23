@@ -21,11 +21,11 @@ export default class Driver {
     console.log("Pre-order traversal:");
     tree.preOrder((node) => console.log(node.data));
 
-    console.log("In-order traversal:");
-    tree.inOrder((node) => console.log(node.data));
-
     console.log("Post-order traversal:");
     tree.postOrder((node) => console.log(node.data));
+
+    console.log("In-order traversal:");
+    tree.inOrder((node) => console.log(node.data));
 
     tree.insert(150);
     tree.insert(200);
@@ -39,5 +39,17 @@ export default class Driver {
     tree.rebalance();
 
     console.log("Is the tree balanced after rebalancing?", tree.isBalanced());
+
+    console.log("Level order traversal:");
+    tree.levelOrder((node) => console.log(node.data));
+
+    console.log("Pre-order traversal:");
+    tree.preOrder((node) => console.log(node.data));
+
+    console.log("Post-order traversal:");
+    tree.postOrder((node) => console.log(node.data));
+
+    console.log("In-order traversal:");
+    tree.inOrder((node) => console.log(node.data));
   }
 }
