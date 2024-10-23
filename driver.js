@@ -6,4 +6,11 @@ export default class Driver {
       Math.floor(Math.random() * maxValue),
     );
   }
+
+  driverScript() {
+    // create a binary search tree from an array of random numbers less than 100
+    let randomNumbers = this.generateRandomArray(10);
+    let tree = new Tree(randomNumbers);
+    console.log("Initial random array: ", randomNumbers);
+  }
 }
