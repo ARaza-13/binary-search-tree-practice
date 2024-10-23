@@ -26,5 +26,18 @@ export default class Driver {
 
     console.log("Post-order traversal:");
     tree.postOrder((node) => console.log(node.data));
+
+    tree.insert(150);
+    tree.insert(200);
+    tree.insert(300);
+
+    console.log(
+      "Is the tree balanced after inserting large numbers?",
+      tree.isBalanced(),
+    );
+
+    tree.rebalance();
+
+    console.log("Is the tree balanced after rebalancing?", tree.isBalanced());
   }
 }
