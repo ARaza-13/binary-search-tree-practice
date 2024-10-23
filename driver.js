@@ -14,5 +14,17 @@ export default class Driver {
     console.log("Initial random array: ", randomNumbers);
 
     console.log("Is the tree balanced?", tree.isBalanced());
+
+    console.log("Level order traversal:");
+    tree.levelOrder((node) => console.log(node.data));
+
+    console.log("Pre-order traversal:");
+    tree.preOrder((node) => console.log(node.data));
+
+    console.log("In-order traversal:");
+    tree.inOrder((node) => console.log(node.data));
+
+    console.log("Post-order traversal:");
+    tree.postOrder((node) => console.log(node.data));
   }
 }
