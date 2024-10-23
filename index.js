@@ -6,16 +6,13 @@ const array = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324]; // sorted and n
 const tree = new Tree(array);
 const driver = new Driver();
 
-let randomArray = driver.generateRandomArray(5);
-console.log(randomArray);
+console.log(prettyPrint(tree.root));
 
 tree.insert(13);
-console.log(prettyPrint(tree.root));
 console.log(tree.find(13));
-
 tree.deleteItem(8);
+
 console.log(prettyPrint(tree.root));
-console.log(tree.find(8));
 
 console.log(tree.levelOrder(prettyPrint));
 console.log(tree.levelOrderRecursive(prettyPrint));
@@ -25,3 +22,5 @@ console.log(tree.preOrder(prettyPrint));
 console.log(tree.postOrder(prettyPrint));
 
 console.log(tree.isBalanced());
+
+driver.driverScript();

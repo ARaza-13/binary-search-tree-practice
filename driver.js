@@ -8,9 +8,11 @@ export default class Driver {
   }
 
   driverScript() {
-    // create a binary search tree from an array of random numbers less than 100
     let randomNumbers = this.generateRandomArray(10);
     let tree = new Tree(randomNumbers);
+
     console.log("Initial random array: ", randomNumbers);
+
+    console.log("Is the tree balanced?", tree.isBalanced());
   }
 }
